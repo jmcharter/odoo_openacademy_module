@@ -13,6 +13,7 @@
                         <!-- Displays as defined in tree view definition -->
                         <field name="instructor"/>
                         <field name="session_ids"/>
+                        <field name="course_ids"/>
                     </group>
                 </page>
             </notebook>
