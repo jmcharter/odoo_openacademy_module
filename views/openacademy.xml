@@ -140,7 +140,7 @@
         </field>
     </record>
 
-    <!-- Calendar view -->
+    <!-- Session Calendar View -->
     <record model="ir.ui.view" id="session_calendar_view">
         <field name="name">session.calendar</field>
         <field name="model">openacademy.session</field>
@@ -216,5 +216,33 @@
     <menuitem id="session_menu" name="View Sessions"
               parent="openacademy_menu"
               action="session_list_action"/>
+
+    <!-- User Registration Wizard -->
+    <record model="ir.ui.view" id="wizard_form_view">
+        <field name="name">wizard.form</field>
+        <field name="model">openacademy.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Add Attendees">
+                <group>
+                    <field name="session_id"/>
+                    <field name="attendee_ids"/>
+                </group>
+                <footer>
+                    <button name="subscribe" type="object"
+                        string="Subscribe" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="launch_session_wizard">
+        <field name="name">Add Attendees</field>
+        <field name="res_model">openacademy.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_openacademy_session"/>
+    </record>
     
 </odoo>
